@@ -1,0 +1,114 @@
+In main s-au apelat toate funtiile din functii.c
+funtii.h are definite functiile din functii.c, structul de pixeli, si structurile din bmp_header + 2 typedef-uri la ele
+Codul din main.c este bine delimitat de niste comentarii care zic unde incepe ce task
+
+============================================================================
+============================================================================
+
+Restul de README se va concentra pe ce functiile apelate in main
+
+============================================================================
+
+citire_bmp_fileheader citeste din fisierul aferent si pune rezultatele in structul bmp_fileheader din bmp_fileheader.h
+
+===========================================================================
+
+citire_bmp_infoheader face acelas lucru dar destinatia este bmp_infoheader din aceasi locatie
+
+============================================================================
+
+citire_bmp_matrix citeste matricea de pixeli dintr-un fisier .bmp
+
+============================================================================
+
+citire apeleaza primele 2 functii sus mentionate
+
+============================================================================
+
+get_padding gaseste paddingul ce trebuie adaugat la scrierea in fisier
+
+============================================================================
+
+free_matrix elibereaza o matrice de pixeli incepand de la o anumita inaltime (nu elibereaza neaparat toata matricea(in caz de erori la alocare))
+
+============================================================================
+
+rotire180 roteste 180 de grade o matrice de pixeli
+
+============================================================================
+
+scriere_bmp_fileheader scrie in fisierul dat ca parametru informatiile citite cu ajutorul citire_bmp_fileheader
+
+============================================================================
+
+sciere_bmp_infoheader face acelas lucru dar informatiile sunt cele citite cu functia citire_bmp_infoheader
+
+============================================================================
+
+bmp_format este o functie care se va apela din scriere_fisier ca sa se scrie formatul .bmp
+
+============================================================================
+
+bin_format face acelas lucru dar este pt formatul .bin
+
+============================================================================
+
+pix_idcentici returneaza 1 daca cei doi pixeli primiti ca parametrii sunt egali daca nu returneaza 0
+
+============================================================================
+
+scriere_fisier detecteaza daca sa scrie un fisier binar sau unul bmp in functie de parametrii dati
+
+============================================================================
+
+black_white este o functie care primeste 2 poze iar cea de-a 2-a poza se transforma in poza alb negru a primeia
+
+============================================================================
+
+free_matrix_c este acelas lucru ca free_matrix dar pt o matrice de char
+
+============================================================================
+
+alocare_mem_poza se foloseste de bmp_infoheader pt a aloca o matrice de pixeli de dimensiunea dorita
+
+============================================================================
+
+alocare_matrice_bin face acelas lucru dar matricea rezultata este o matrice char
+
+============================================================================
+
+alocare_filtre aloca spatiu pt filtrele de la taskul 2
+
+============================================================================
+
+def_filtre defineste filtrele de la taskul 2
+
+============================================================================
+
+aplicatie_fitre aplica un filtru unei imagini ( poza e imaginea originala iar pic este poza cu filtru
+
+============================================================================
+
+free_filtre dezaloca memoria pt un filtru
+
+============================================================================
+
+umplere_zone_pixeli face algoritmul prezentat in cerinta taskului 3 (faza de colorare a zonelor)
+
+Pt acesta nu s-a implementat recursiv deoarece stiva nu mermite atata memorie consumata, asa ca s-au declarat pe heap variabilele jj si ii (aproximativ 24MB impreuna) in care se vor stoca indicii unei pozitii
+
+poz reprezinta pozitia curenta iar ii[poz] este linia de pe pozitia poz
+
+poz_max reprezinta ultima pozitie
+
+============================================================================
+
+initializare_binar_and_pic coloreaza o matrice cu pixeli aleatori in functie de latele din fisierul binar iar pixeli colorati se noteaza ca si fiind colorati in matricea binara(char)
+
+============================================================================
+
+color matrix se uita la vecinii unui pixel si daca acesta trebuie colorat (conform matricei binare) se coloreaza in functie de vecinul/vecinii care sunt deja colorati de langa acesta
+
+=============================================================================
+=============================================================================
+
